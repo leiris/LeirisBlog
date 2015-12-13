@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.9/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.9/ref/settings/
 """
-
+# -*- coding: utf-8 -*-
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -25,6 +25,11 @@ SECRET_KEY = 'qm)0-jg45v^rn49hnnuh#*9u1k7(x^b^8^z!480r5sxrj9d#3v'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LANGUAGE_CODE = None
+LANGUAGES = (
+    ('en-us', 'English'),
+)
+
 ALLOWED_HOSTS = []
 
 
@@ -37,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'manage',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -76,8 +82,12 @@ WSGI_APPLICATION = 'LeirisBlog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql', #Add 'mysql','sqllite3' or 'or'
+        'NAME': 'leirisblog',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
 
